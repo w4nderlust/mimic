@@ -76,9 +76,7 @@ def write_to_file(utf8_string, file_name):
 
 def main():
     parser = OptionParser()
-    parser.add_option("-t", "--train", action="store_true", dest="train",
-                            help="train a model")
-    parser.add_option("-i", "--input", action="store", dest="input_path",
+    parser.add_option("-t", "--train", action="store", dest="train_path",
                             help="input file / directory for training")
     parser.add_option("-o", "--order", action="store", dest="order",
                             type="int", default=4,
