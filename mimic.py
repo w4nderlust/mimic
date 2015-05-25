@@ -93,21 +93,18 @@ def main():
                             help="number of texts to generate")
     (options, args) = parser.parse_args()
     model = None
-    if options.train:
-        if options.input_path:
-            print "Training model from path: " + options.input_path
-            model = train_lm(options.input_path, options.order)
-            print "Finished training"
-            if (options.model_path):
-                print "Saving model to: " + options.model_path
-                with open(options.model_path, "wb") as model_file:
-                    pickle.dump(model, model_file, pickle.HIGHEST_PROTOCOL)
-                print "Finished saving"
-            else:
-                print "The trained model will not be saved"
-                print "  (to save it use -m option)"
+    if options.train_path:
+        print "Training model from path: " + options.input_path
+        model = train_lm(options.input_path, options.order)
+        print "Finished training"
+        if (options.model_path):
+            print "Saving model to: " + options.model_path
+            with open(options.model_path, "wb") as model_file:
+                pickle.dump(model, model_file, pickle.HIGHEST_PROTOCOL)
+            print "Finished saving"
         else:
-            print "Add in input path with -i option"
+            print "The trained model will not be saved"
+            print "  (to save it use -m option)"
     if options.generate_path:
         if not model:
             if options.model_path:
