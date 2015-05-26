@@ -94,8 +94,8 @@ def main():
     (options, args) = parser.parse_args()
     model = None
     if options.train_path:
-        print "Training model from path: " + options.input_path
-        model = train_lm(options.input_path, options.order)
+        print "Training model from path: " + options.train_path
+        model = train_lm(options.train_path, options.order)
         print "Finished training"
         if (options.model_path):
             print "Saving model to: " + options.model_path
